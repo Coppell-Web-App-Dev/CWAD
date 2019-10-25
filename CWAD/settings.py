@@ -13,9 +13,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import json
 
-with open("./config.json") as f:
-    config = json.load(f)
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,11 +20,24 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config["KEY"]
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+try:
+    if DEBUG:
+        with open("./config.json") as f:
+            config = json.load(f)
+    else:
+        with open("/etc/config.json") as f:
+            config = json.load(f)
+except:
+    config = ""
+    pass
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config["KEY"]
 
 ALLOWED_HOSTS = []
 
@@ -56,10 +66,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'CWAD.urls'
 
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,5 +133,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'css'),
+    os.path.join(BASE_DIR, 'js'),
+]
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
