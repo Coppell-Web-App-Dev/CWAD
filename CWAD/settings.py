@@ -32,12 +32,13 @@ try:
     else:
         with open("/etc/config.json") as f:
             config = json.load(f)
+    SECRET_KEY = config["KEY"]
 except:
-    config = ""
+    SECRET_KEY = "?"
     pass
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config["KEY"]
+
 
 ALLOWED_HOSTS = []
 
@@ -136,6 +137,7 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'css'),
     os.path.join(BASE_DIR, 'js'),
+    os.path.join(BASE_DIR, 'img')
 ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

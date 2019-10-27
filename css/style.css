@@ -1,3 +1,26 @@
-h1{
-    color: aquamarine;
+body{
+    margin: 0;
+}   
+#main{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+nav{
+
+}
+
+nav ul{
+
+}
+
+nav ul li{
+
+}
+nav ul li a{
+    
 }
