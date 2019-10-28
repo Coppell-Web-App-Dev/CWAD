@@ -12,12 +12,18 @@
 <body>
     
     <canvas id="main"></canvas>
-    <h1>test</h1>
+    <script src="{% static 'js/granim.min.js' %}"></script>
+    <script src="{% static 'js/gradient.js' %}"></script>
+    <script>
+        var src = "{% static 'img/background.png'%}";
+        createBackground(src);
+    </script>
+
     <div class="navigation-bar">
         <nav>
             <h1 class="logo-mask">&lt;CWAD&gt;</h1>
             <ul>
-                <li>Projects</li>
+                <li><a href="{% url 'projects' %}">Club Projects</a></li>
                 <li>GitHub</li>
                 <li>About</li>
             </ul>
@@ -27,12 +33,5 @@
     {% block content %}
         
     {% endblock content%}
-
-    <script src="{% static 'js/granim.min.js' %}"></script>
-    <script src="{% static 'js/gradient.js' %}"></script>
-    <script>
-        var src = "{% static 'img/background.png'%}";
-        createBackground(src);
-    </script>
 </body>
 </html>
