@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     <title>CWAD</title>
 </head>
@@ -28,27 +28,11 @@
         
     {% endblock content%}
 
-    <script src="{% static 'granim.min.js' %}"></script>
+    <script src="{% static 'js/granim.min.js' %}"></script>
+    <script src="{% static 'js/gradient.js' %}"></script>
     <script>
-        var backgroundGradient = new Granim({
-            element: '#main',
-            direction: 'top-bottom',
-            isPausedWhenNotInView: true,
-            image: {
-                source: "{% static 'background.png' %}",
-                blendingMode: 'multiply'
-            },
-            states: {
-                "default-state": {
-                    gradients: [
-                        ['#000000','#000000','#002f33', '#002f33', '#00929e'],
-                        ['#000000','#000000', '#000000', '#000000', '#005955'],
-                    ],
-                    transitionSpeed: 7500
-                }
-            }
-        });
+        var src = "{% static 'img/background.png'%}";
+        createBackground(src);
     </script>
-
 </body>
 </html>
