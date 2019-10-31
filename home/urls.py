@@ -1,7 +1,8 @@
 from . import views
+from projects.views import ProjectListView
 from django.urls import path, include
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('projects', include('projects.urls'))
+    path('projects', ProjectListView.as_view(), name='projects'),
 ]
