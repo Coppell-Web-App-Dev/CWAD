@@ -11,17 +11,34 @@ body{
     left: 0;
 }
 
-nav{
+.navigation-bar{
+    width: 100%;
+    position: absolute;
+}
 
+nav{
+    display: flex;
+    width: fit-content;
+    margin: 50px auto;
 }
 
 nav ul{
-
+    vertical-align: middle;
+    margin: auto;
 }
 
 nav ul li{
-
+    list-style: none;
+    display: inline-block;
+    border-radius: 20px;
+    margin: auto 5px;
 }
 nav ul li a{
-    
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 20px;
+    width: auto;
+    text-align: center;
+    color: white;
+    font-size: 32pt;
 }
