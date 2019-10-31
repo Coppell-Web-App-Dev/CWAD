@@ -11,10 +11,12 @@ function createBackground(src){
         states: {
             "default-state": {
                 gradients: [
-                    ['#000000','#000000','#002f33', '#002f33', '#00929e'],
-                    ['#000000','#000000', '#000000', '#000000', '#005955'],
+                    ['#29323c', '#485563'],
+                    ['#FF6B6B', '#556270'],
+                    ['#80d3fe', '#7ea0c4'],
+                    ['#f0ab51', '#eceba3']
                 ],
-                transitionSpeed: 7500
+                transitionSpeed: 2500
             }
         }
     });
